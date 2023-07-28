@@ -7,6 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tektur&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&display=swap" rel="stylesheet">
     <title>CronômetroDev</title>
 
 </head>
@@ -66,6 +69,7 @@
     main {
         background-color: #454545;
         background-size: cover;
+        font-family: 'Roboto Slab', serif;
     }
 
     header {
@@ -76,11 +80,14 @@
         padding: 10px;
         text-align: center;
         width: 100vw;
+        font-weight: bold;
+        font-size: 30px;
     }
 
     .dev {
         font-size: 10px;
         color: gray;
+        font-family: 'Tektur', cursive;
     }
 
     h2 {
@@ -118,14 +125,17 @@
 
     p {
         position: relative;
-        top: 30px;
+        top: 25px;
         padding-left: 5px;
     }
 
-    button:hover {opacity: 0.5;}
+    button:hover {
+        opacity: 0.5;
+    }
 
-    button:active {opacity: 0;}
-
+    button:active {
+        opacity: 0;
+    }
 </style>
 
 
@@ -147,14 +157,14 @@
 
 
     function start() {
-        
+
         cronss = setInterval(function () {
             numberss++
             mlsec.innerHTML = numberss
             if (numberss === 99) {
                 numberss = 0
             }
-        }, 10);
+        }, 15);
 
 
         cronSec = setInterval(function () {
@@ -179,17 +189,21 @@
 
         }, 3600000);
 
-        startButton.opacity = 0 
-
+        document.querySelector(".started").disabled = true;
     }
+
     function stop() {
+
         clearInterval(cronss),
             clearInterval(cronSec),
             clearInterval(cronMin),
-            clearInterval(cronHour)
+            clearInterval(cronHour),
+
+            document.querySelector(".started").disabled = false;
     }
 
     function reset() {
+
         clearInterval(cronss),
             clearInterval(cronSec),
             clearInterval(cronMin),
@@ -198,10 +212,13 @@
             sec.innerHTML = "00",
             min.innerHTML = "00",
             hour.innerHTML = "00"
+        numberss = 0
+        numbers = 0
+        numberm = 0
+        numberh = 0
 
+        document.querySelector(".started").disabled = false;
     }
-    console.log("oi")
-
 
 </script>
 
