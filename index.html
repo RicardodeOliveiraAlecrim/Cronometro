@@ -39,7 +39,7 @@
 
                 <button onclick="start()" class="started">Start</button>
 
-                <button onclick="stop()">Stop</button>
+                <button onclick="stop()" class="stoped">Stop</button>
 
                 <button onclick="reset()">Reset</button>
 
@@ -118,9 +118,14 @@
 
     p {
         position: relative;
-        top: 10px;
+        top: 30px;
         padding-left: 5px;
     }
+
+    button:hover {opacity: 0.5;}
+
+    button:active {opacity: 0;}
+
 </style>
 
 
@@ -142,7 +147,7 @@
 
 
     function start() {
-        const startButton = document.querySelector(".started")
+        
         cronss = setInterval(function () {
             numberss++
             mlsec.innerHTML = numberss
