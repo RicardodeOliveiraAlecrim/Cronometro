@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur&display=swap" rel="stylesheet">
+    <title>CronômetroDev</title>
+
+</head>
+
+<body>
+    <main>
+
+        <header>
+            <h1>Cronômetro<span class="dev">Dev</span></h1>
+
+        </header>
+
+        <article>
+
+
+
+            <div class="imgtime">
+                <img src="./assets/cron.png">
+
+                <h2>
+                    <span class="hour">00</span>:
+                    <span class="min">00</span>:
+                    <span class="sec">00</span>:
+                    <span class="mlsec">00</span>
+                </h2>
+
+            </div>
+
+            <div class="btn">
+
+                <button onclick="start()" class="started">Start</button>
+
+                <button onclick="stop()">Stop</button>
+
+                <button onclick="reset()">Reset</button>
+
+
+            </div>
+
+        </article>
+        <footer>
+            <p>Desenvolvido por Ricardo de Oliveira Alecrim</p>
+        </footer>
+
+
+    </main>
+
+</body>
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    main {
+        background-color: #454545;
+        background-size: cover;
+    }
+
+    header {
+        height: 20vh;
+    }
+
+    h1 {
+        padding: 10px;
+        text-align: center;
+        width: 100vw;
+    }
+
+    .dev {
+        font-size: 10px;
+        color: gray;
+    }
+
+    h2 {
+        position: relative;
+        bottom: 70px;
+        font-family: 'Tektur', cursive;
+    }
+
+
+    article {
+        height: 70vh;
+        text-align: center;
+    }
+
+    img {
+        height: 250px;
+        position: relative;
+        top: 30px;
+    }
+
+    button {
+        border-radius: 3px;
+        border-width: 0;
+        background: black;
+        color: white;
+        margin: 5px;
+        cursor: pointer;
+        appearance: none;
+        padding: 5px;
+    }
+
+    footer {
+        height: 10vh;
+    }
+
+    p {
+        position: relative;
+        top: 10px;
+        padding-left: 5px;
+    }
+</style>
+
+
+<script>
+
+    let numberss = 0
+    let numbers = 0
+    let numberm = 0
+    let numberh = 0
+    let cronss
+    let cronSec
+    let cronMin
+    let cronHour
+    let mlsec = document.querySelector(".mlsec")
+    let sec = document.querySelector(".sec")
+    let min = document.querySelector(".min")
+    let hour = document.querySelector(".hour")
+
+
+
+    function start() {
+        const startButton = document.querySelector(".started")
+        cronss = setInterval(function () {
+            numberss++
+            mlsec.innerHTML = numberss
+            if (numberss === 99) {
+                numberss = 0
+            }
+        }, 10);
+
+
+        cronSec = setInterval(function () {
+            numbers++
+            sec.innerHTML = numbers
+            if (numbers === 59) {
+                numbers = 0
+            }
+        }, 1000);
+
+        cronMin = setInterval(function () {
+            numberm++
+            min.innerHTML = numberm
+            if (numbers === 59) {
+                numberm = 0
+            }
+        }, 60000);
+
+        cronHour = setInterval(function () {
+            numberh++
+            hour.innerHTML = numberh
+
+        }, 3600000);
+
+        startButton.opacity = 0 
+
+    }
+    function stop() {
+        clearInterval(cronss),
+            clearInterval(cronSec),
+            clearInterval(cronMin),
+            clearInterval(cronHour)
+    }
+
+    function reset() {
+        clearInterval(cronss),
+            clearInterval(cronSec),
+            clearInterval(cronMin),
+            clearInterval(cronHour),
+            mlsec.innerHTML = "00",
+            sec.innerHTML = "00",
+            min.innerHTML = "00",
+            hour.innerHTML = "00"
+
+    }
+    console.log("oi")
+
+
+</script>
+
+</html>
