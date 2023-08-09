@@ -180,7 +180,7 @@
 
         cronss = setInterval(function () {
             numberss++
-            mlsec.innerHTML = numberss
+            mlsec.innerHTML = numberss.toString().padStart(2,'0')
             if (numberss === 99) {
                 numberss = 0
             }
@@ -189,7 +189,7 @@
 
         cronSec = setInterval(function () {
             numbers++
-            sec.innerHTML = numbers
+            sec.innerHTML = numbers.toString().padStart(2,'0')
             if (numbers === 59) {
                 numbers = 0
             }
@@ -197,7 +197,7 @@
 
         cronMin = setInterval(function () {
             numberm++
-            min.innerHTML = numberm
+            min.innerHTML = numberm.toString().padStart(2,'0')
             if (numbers === 59) {
                 numberm = 0
             }
@@ -205,7 +205,7 @@
 
         cronHour = setInterval(function () {
             numberh++
-            hour.innerHTML = numberh
+            hour.innerHTML = numberh.toString().padStart(2,'0')
 
         }, 3600000);
 
