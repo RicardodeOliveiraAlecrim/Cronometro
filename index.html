@@ -36,18 +36,20 @@
                     <span class="mlsec">00</span>
                 </h2>
 
+              <div class="btn">
+
+                  <button onclick="start()" class="started">Start</button>
+
+                  <button onclick="stop()" class="stoped">Stop</button>
+
+                  <button onclick="reset()">Reset</button>
+
+
+              </div>
+              
             </div>
 
-            <div class="btn">
-
-                <button onclick="start()" class="started">Start</button>
-
-                <button onclick="stop()" class="stoped">Stop</button>
-
-                <button onclick="reset()">Reset</button>
-
-
-            </div>
+            
 
         </article>
         <footer>
@@ -94,6 +96,7 @@
         position: relative;
         bottom: 70px;
         font-family: 'Tektur', cursive;
+      color: gray;
     }
 
 
@@ -140,20 +143,31 @@
     @media screen and (max-width: 1000px) and (orientation: landscape) {
 
         .imgtime {
-            height: 200px;
+            height: 100%;
         }
+
+      
 
         img {
-            height: 169px;
+            height: 50vh;
             position: relative;
-            top: 30px;
-            right: 170px;
+            top: 0;
+          width: auto;
         }
 
-        p {
-            position: relative;
-            top: 19px;
+        footer {
+          height: auto;
         }
+
+      p {
+        position: relative;
+        top: 0  ;
+      }
+
+      .btn {
+        position: relative;
+        bottom: 10vh;
+      }
 
     }
 </style>
